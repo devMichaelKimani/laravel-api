@@ -15,4 +15,10 @@ class TaskController extends Controller
     {
         return response()->json(Task::all());
     }
+    public function show(Request $request, int $id): JsonResponse
+    {
+        $task = Task::query()->where('id', $id)->firstOrFail();
+        if(is_null($task)) return response()->json('Not found', 404);
+        else return response()->json($task);
+    }
 }

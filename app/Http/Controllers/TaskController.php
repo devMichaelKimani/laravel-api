@@ -11,8 +11,8 @@ class TaskController extends Controller
     /**
      * @return JsonResponse
      */
-    public function index(): JsonResponse{
+    public function index(): JsonResponse
+    {
         return response()->json(Task::all());
-
-}
+    }
 }
